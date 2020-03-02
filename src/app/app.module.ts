@@ -14,11 +14,17 @@ import { StoreModule } from '@ngrx/store'
 import { ToDoReducer } from './to-do/todo.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ToDoEffects } from './to-do/todo.effects';
+import { MergeMapComponent } from './merge-map/merge-map.component';
+import { ConcatMapComponent } from './concat-map/concat-map.component';
+import { NgxStoreComponent } from './ngx-store/ngx-store.component';
 @NgModule({
   declarations: [
     AppComponent,
     ToDoComponent,
-    AutoCompleteComponent
+    AutoCompleteComponent,
+    MergeMapComponent,
+    ConcatMapComponent,
+    NgxStoreComponent
   ],
   imports: [
     HttpClientModule,

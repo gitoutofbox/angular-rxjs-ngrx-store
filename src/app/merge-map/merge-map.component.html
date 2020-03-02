@@ -1,0 +1,47 @@
+<div>
+    <button (click)="getAllStudents()">Show Students</button> &nbsp;
+    <button (click)="testMergeAll()">Check Merge All</button>
+    <!-- <button (click)="getOneStudent()">Show One Students</button> -->
+</div>
+<br />
+<div class="list">
+    Total Students: {{totalStudents}}
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Student ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let studentObj of students">
+                <td>{{studentObj.id}}</td>
+                <td><a (click)="getOneStudent(studentObj.id)">{{studentObj.name}}</a></td>
+            </tr>
+            <tr *ngIf="students.length === 0">
+                <td colspan="2" align="center">No records</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="details" *ngIf="student">
+    <div>Student Details:</div>
+    <table>
+        <tr>
+            <td>Student ID:</td>
+            <td>{{student?.id}}</td>
+        </tr>
+        <tr>
+            <td>Student Name:</td>
+            <td>{{student?.name}}</td>
+        </tr>
+        <tr>
+            <td>Student Sujects:</td>
+            <td>
+                <ul>
+                    <li *ngFor="let subject of student?.subjects">{{subject.name}}</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
