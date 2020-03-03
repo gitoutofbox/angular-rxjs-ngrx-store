@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 
 const student    = require('./routes/student')
 const concatmap    = require('./routes/concatmap')
+const user    = require('./routes/user')
+const news    = require('./routes/news')
 const toDo    = require('./routes/toDo')
 const app     = express();
 
@@ -35,3 +37,12 @@ app.get('/students/subjects/:id', student.getStudentSubjects);
 app.get('/concatmap/userlist/:id', concatmap.userlist);
 app.get('/concatmap/products/:id', concatmap.products);
 app.get('/concatmap/news/:id', concatmap.news);
+
+
+
+app.get('/user/getUserInfo', user.getUserInfo);
+app.get('/user/getUserTheme/:id', user.getUserTheme);
+app.get('/user/getUserGeoLocation/:id', user.getUserGeoLocation);
+app.get('/user/getCommonSetting', user.getCommonSetting);
+
+app.get('/news', news.getNewsList);
