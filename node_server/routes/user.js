@@ -8,7 +8,7 @@ exports.getUserTheme = function (req, res) {
     // this is the themeing info for user id: 1
     setTimeout(() => {
         res.send({
-            bodyBgColor: '#ccc',
+            bodyBgColor: 'lightgreen',
             color: '#000',
             headerBgColor: '#9595d4',
             headerColor: 'white',
@@ -29,7 +29,9 @@ exports.getUserGeoLocation = function (req, res) {
 // =================================================================
 // Followings are not dependent on each another
 exports.getCommonSetting = function (req, res) {
+    setTimeout(() => {
     res.send({
         greetMessage: 'Hello dear, how are you doing'
     })
+}, 3000);
 }

@@ -10,7 +10,8 @@ export class AppComponent {
   user = 'User';
   bgColor = 'black';
   color = 'white';
-  bodyBgColor = 'white';
+  bodyBgColor = 'gray';
+
   constructor( private userService: UserService) {
     this.userService.getUserInfo().subscribe(resp => {
       this.user = resp;

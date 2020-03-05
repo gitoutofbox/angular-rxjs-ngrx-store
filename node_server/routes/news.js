@@ -1,5 +1,6 @@
 exports.getNewsList = function(req, res) {
-    res.send( [
+    setTimeout(() => {
+        res.send( [
         {title:"New 1", detail: 'news Detail'},
         {title:"New 2", detail: 'news Detail'},
         {title:"New 3", detail: 'news Detail'},
@@ -8,4 +9,5 @@ exports.getNewsList = function(req, res) {
         {title:"New 6", detail: 'news Detail'},
         {title:"New 7", detail: 'news Detail'},
     ])
+}, 2000);
 }

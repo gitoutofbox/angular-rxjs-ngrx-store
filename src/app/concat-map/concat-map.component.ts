@@ -13,33 +13,11 @@ export class ConcatMapComponent implements OnInit {
   newsList: any = [];
   constructor(private apiService: ApiService, private userService: UserService) { }
   ngOnInit(): void {
-    // this.stack()
-    // this.testOne();
-    this.testForkJoin();
-    this.getUserConfig();
+    this.testConcatMap();
+    // this.getUserConfig(); 
+    // this.testForkJoin();    
   }
-
-  testForkJoin() {
-    forkJoin([
-      this.apiService.get('http://localhost:8081/user/getUserInfo').pipe(tap(res => console.log(res))),
-      this.apiService.get('http://localhost:8081/user/getCommonSetting').pipe(tap(res => console.log(res))),
-      this.apiService.get('http://localhost:8081/news').pipe(
-        tap(res => {
-          console.log(res); 
-           
-        }),
-        
-        )
-    ]).subscribe(
-      allResults => {
-        console.log('all result', allResults);
-        this.newsList = allResults[2];
-        console.log(this.newsList)
-      }
-      );
-  }
-  
-  testOne() {
+  testConcatMap() {
     this.apiService.get('http://localhost:8081/concatmap/userlist/5sec').pipe(
       tap(res => {console.log('First result', res);}),
       concatMap(res => this.apiService.get('http://localhost:8081/concatmap/products/3sec')),
@@ -49,8 +27,8 @@ export class ConcatMapComponent implements OnInit {
     ).subscribe(resp => {
       console.log('final resp', resp)
     })
-  }
 
+  }
   getUserConfig() {
     this.apiService.get(`http://localhost:8081/user/getUserInfo`).pipe(
       tap(res => {
@@ -69,6 +47,28 @@ export class ConcatMapComponent implements OnInit {
       console.log('final resp', resp)
     })
   }
+  
+
+  testForkJoin() {
+    forkJoin([
+      this.apiService.get('http://localhost:8081/user/getUserInfo').pipe(tap(res => 
+      {
+        console.log('first', res);
+        this.userService.setUserInfo(res['userName'])
+      })),
+      this.apiService.get('http://localhost:8081/user/getCommonSetting').pipe(tap(res => console.log('second', res))),
+      this.apiService.get('http://localhost:8081/news')
+    ]).subscribe(
+      allResults => {
+        console.log('all result', allResults);
+        this.newsList = allResults[2];
+      }
+      );
+  }
+  
+  
+
+  
 
 
   stack() {
