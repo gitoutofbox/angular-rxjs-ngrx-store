@@ -40,7 +40,7 @@ export class ToDoComponent implements OnInit {
   todoError: Error = null;
 
   createToDo() {
-    const todo: ToDo = { Title: this.Title, IsCompleted: this.IsCompleted };
+    const todo: ToDo = { title: this.Title, isCompleted: this.IsCompleted };
     this.store.dispatch(ToDoActions.BeginCreateToDoAction({ payload: todo }));
     this.Title = '';
     this.IsCompleted = false;

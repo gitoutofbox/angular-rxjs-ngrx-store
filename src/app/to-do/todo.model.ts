@@ -1,4 +1,4 @@
 export default class ToDo {
-    Title: string;
-    IsCompleted: boolean;
+    title: string;
+    isCompleted: boolean;
 }

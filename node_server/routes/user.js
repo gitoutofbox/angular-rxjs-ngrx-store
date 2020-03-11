@@ -8,7 +8,7 @@ exports.getUserTheme = function (req, res) {
     // this is the themeing info for user id: 1
     setTimeout(() => {
         res.send({
-            bodyBgColor: 'lightgreen',
+            bodyBgColor: '#447744',
             color: '#000',
             headerBgColor: '#9595d4',
             headerColor: 'white',

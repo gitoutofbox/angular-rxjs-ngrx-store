@@ -1,0 +1,21 @@
+<div class="component-main">
+    <h1>All ToDos</h1>
+    <ul>
+        <li *ngFor="let todo of filteredTodos" [ngStyle]="{'background-color': todo.isCompleted ? '#8fda8f': '#e26f6f'}">{{todo.title}} - {{todo.isCompleted}}</li>
+    </ul>
+</div>
+
+<div class="sidebar">
+    <div class="success" *ngIf="voteSubmitted">
+        Thanks for your vote, you've selected: <strong>{{voteSubmitted | titlecase}}</strong>
+    </div>
+    <h5>Give your on this Yutube channel</h5>
+    <ul>
+        <li><input type="radio" [(ngModel)]="choice" name="vote_choice" value="awesome" /> Awesome</li>
+        <li><input type="radio" [(ngModel)]="choice" name="vote_choice" value="good" /> Good</li>
+        <li><input type="radio" [(ngModel)]="choice" name="vote_choice" value="normal" /> Normal</li>
+        <li><input type="radio" [(ngModel)]="choice" name="vote_choice" value="bad" /> Bad</li>
+        <li><input type="radio" [(ngModel)]="choice" name="vote_choice" value="poor" /> Poor</li>
+    </ul>
+    <button #submitVote>Vote</button>
+</div>

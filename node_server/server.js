@@ -11,6 +11,7 @@ const concatmap    = require('./routes/concatmap')
 const user    = require('./routes/user')
 const news    = require('./routes/news')
 const toDo    = require('./routes/toDo')
+const vote    = require('./routes/vote')
 const app     = express();
 
 app.use(express.static('app'));
@@ -46,3 +47,8 @@ app.get('/user/getUserGeoLocation/:id', user.getUserGeoLocation);
 app.get('/user/getCommonSetting', user.getCommonSetting);
 
 app.get('/news', news.getNewsList);
+
+app.get('/todos/getToDos', toDo.getToDos);
+app.get('/todos/getCompletedToDos', toDo.getCompletedToDos);
+
+app.post('/vote/save', vote.save);

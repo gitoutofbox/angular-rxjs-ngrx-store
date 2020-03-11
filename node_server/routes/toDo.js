@@ -1,21 +1,34 @@
 let ToDo = {
     "ToDos": [
         {
-            "Title": "To do 1",
-            "IsCompleted": true
+            "title": "To do 1",
+            "isCompleted": true
         },
         {
-            "Title": "To do 2",
-            "IsCompleted": false
+            "title": "To do 2",
+            "isCompleted": false
+        },
+        {
+            "title": "To do 3",
+            "isCompleted": false
+        },
+        {
+            "title": "To do 4",
+            "isCompleted": true
         }
     ]
 }
 exports.getToDos = function (req, res) {
-    res.send(ToDo.ToDos);
+    res.send({data: ToDo.ToDos});
+}
+exports.getCompletedToDos = function() {
+    var result = ToDo.ToDos.filter(todo => todo.isCompleted); 
+    console.log(result); 
+    res.send({data: result});
 }
 exports.saveToDos = function(req, res) {
-    const Title = req.body.Title;
-    const IsCompleted = req.body.IsCompleted;
-    ToDo.ToDos.push({Title: Title, IsCompleted: IsCompleted});
-    res.send({Title: Title, IsCompleted: IsCompleted});
+    const title = req.body.title;
+    const isCompleted = req.body.isCompleted;
+    ToDo.ToDos.push({title: title, isCompleted: isCompleted});
+    res.send({title: title, isCompleted: isCompleted});
 }

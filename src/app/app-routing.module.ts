@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
 import { NgxStoreComponent } from './ngx-store/ngx-store.component';
+import { RxFirstComponent } from './rx-first/rx-first.component';
 
 
 const routes: Routes = [
   {path: "merge-map", component: MergeMapComponent},
   {path: "concat-map", component: ConcatMapComponent},
+  {path: "rx-first", component: RxFirstComponent},
   {path: "ngx-store", component: NgxStoreComponent},
   {path:'', redirectTo: 'merge-map', pathMatch: 'full'  }
 ];

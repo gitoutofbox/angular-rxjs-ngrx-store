@@ -17,6 +17,7 @@ import { ToDoEffects } from './to-do/todo.effects';
 import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
 import { NgxStoreComponent } from './ngx-store/ngx-store.component';
+import { RxFirstComponent } from './rx-first/rx-first.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { NgxStoreComponent } from './ngx-store/ngx-store.component';
     AutoCompleteComponent,
     MergeMapComponent,
     ConcatMapComponent,
-    NgxStoreComponent
+    NgxStoreComponent,
+    RxFirstComponent
   ],
   imports: [
     HttpClientModule,

@@ -13,8 +13,9 @@ export class ConcatMapComponent implements OnInit {
   newsList: any = [];
   constructor(private apiService: ApiService, private userService: UserService) { }
   ngOnInit(): void {
-    this.testConcatMap();
-    // this.getUserConfig(); 
+    // this.testConcatMap();
+    this.getUserConfig(); 
+
     // this.testForkJoin();    
   }
   testConcatMap() {
