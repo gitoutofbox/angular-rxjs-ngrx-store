@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { concatMap, tap } from 'rxjs/operators';
+import { concatMap, tap, mergeMap } from 'rxjs/operators';
 import { from, forkJoin } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 
@@ -17,6 +17,7 @@ export class ConcatMapComponent implements OnInit {
     this.getUserConfig(); 
 
     // this.testForkJoin();    
+    
   }
   testConcatMap() {
     this.apiService.get('http://localhost:8081/concatmap/userlist/5sec').pipe(
@@ -65,25 +66,5 @@ export class ConcatMapComponent implements OnInit {
         this.newsList = allResults[2];
       }
       );
-  }
-  
-  
-
-  
-
-
-  stack() {
-    //https://stackblitz.com/edit/concatmap-example
-    from([
-      this.apiService.get('http://localhost:8081/concatmap/userlist/1'),
-      this.apiService.get('http://localhost:8081/concatmap/products/2'),
-      this.apiService.get('http://localhost:8081/concatmap/news/3')
-    ])
-      .pipe(
-        concatMap(x => x)
-      )
-      .subscribe(resp => {
-        console.log('rep', resp)
-      })
   }
 }

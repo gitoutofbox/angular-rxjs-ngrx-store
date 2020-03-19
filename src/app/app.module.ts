@@ -18,6 +18,7 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
 import { NgxStoreComponent } from './ngx-store/ngx-store.component';
 import { RxFirstComponent } from './rx-first/rx-first.component';
+import { MergemapVsConcatmapComponent } from './mergemap-vs-concatmap/mergemap-vs-concatmap.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { RxFirstComponent } from './rx-first/rx-first.component';
     MergeMapComponent,
     ConcatMapComponent,
     NgxStoreComponent,
-    RxFirstComponent
+    RxFirstComponent,
+    MergemapVsConcatmapComponent
   ],
   imports: [
     HttpClientModule,
